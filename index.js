@@ -123,6 +123,21 @@ else
 }
 });
 
+reset.addEventListener("click", function(resetClickEvent) 
+{
+    alert("Hello")
+    window.location.reload();
+    // tmp = "";
+    // userScore = 0;
+    // computerScore = 0;
+    // round = 0;
+    // winner = "";
+    // selection = [];
+
+    welcomeScreen.classList.remove("hidden");
+    gameScreen.classList.add("hidden");
+
+});
 
 gameForm.addEventListener("submit", function(gameFormSubmitEvent){
     gameFormSubmitEvent.preventDefault();
