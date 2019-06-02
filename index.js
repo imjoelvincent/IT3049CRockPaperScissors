@@ -1,12 +1,14 @@
-"use strickt";
+"use strict";
 
-const helloHeader = document.getElementById("helloHeader");
-const helloParagraph = document.getElementsByTagName("helloParagraph");
-helloHeader.style.color = 'red';
-//console.log(helloParagraph);
+const startButton = document.getElementById("startButton");
+const welcomeScreen = document.getElementById("welcomeScreen");
+const gameScreen = document.getElementById("gameScreen");
+startButton.addEventListener("click", function(startButtonClickEvent) {
+    startButtonClickEvent.preventDefault();
 
-const testParagraph = document.createElement("p");
-testParagraph.innerHTML = `<span style="color: blue">Hello</span>`
-document.body.appendChild(testParagraph);
-console.log(testParagraph);
+    console.log("user clicked the start button");
 
+    welcomeScreen.classList.add("hidden");
+
+    gameScreen.classList.remove("hidden");
+});

@@ -8,10 +8,25 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1 id="helloHeader">Hello!</h1>
-    <p id="helloparagraph">
-        Hello World
-    </p>
+    <h1>Rock Paper Scissors</h1>
+
+    <div id="welcomeScreen">Welcome to the game! Enter your name and click start playing to begin! <br>
+     <button id="startButton">Start</button>   
+
+    </div>
+    <div id="gameScreen" class="hidden">
+
+        <form id="gameForm">
+            <label for="userInput">
+                <input type="text" id="userInput" />
+            </label>
+            <input type="submit" value="guess">
+        </form>
+
+    </div>
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
     <script src="index.js"></script>
 </body>
 </html>
