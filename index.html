@@ -11,21 +11,39 @@
     <h1>Rock Paper Scissors</h1>
 
     <div id="welcomeScreen">Welcome to the game! Enter your name and click start playing to begin! <br>
-     <button id="startButton">Start</button>   
+    <button id="startButton">Start</button>   
 
     </div>
+
     <div id="gameScreen" class="hidden">
-
         <form id="gameForm">
-            <label for="userInput">
-                <input type="text" id="userInput" />
-            </label>
-            <input type="submit" value="guess">
-        </form>
-
+    
+        <div id="user-label" class="badge">User Score: </div>
+        <div id="computer-label" class="badge">Computer Score</div>
+        <span id="user-score">0</span>:<span id="computer-score">0</span>
+    
+    
+    <div class="result">
+        <p>Paper beats rock, you win!</p>
     </div>
 
-    
+    <div class="choices">
+        <div class="choice" id="r">
+            <img src="images/Rock.bmp" alt="">
+        </div>
+        <div class="choice" id="p">
+            <img src="images/Paper.bmp" alt="">
+        </div>
+        <div class="choice" id="s">
+            <img src="images/Scissors.bmp" alt="">
+        </div>
+    </div>
+
+
+    <p id="action-message">Make your move.</p>
+    </form>
+    </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
     <script src="index.js"></script>
 </body>

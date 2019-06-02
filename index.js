@@ -3,6 +3,9 @@
 const startButton = document.getElementById("startButton");
 const welcomeScreen = document.getElementById("welcomeScreen");
 const gameScreen = document.getElementById("gameScreen");
+
+
+const gameForm = document.getElementById("gameForm");
 startButton.addEventListener("click", function(startButtonClickEvent) {
     startButtonClickEvent.preventDefault();
 
@@ -11,4 +14,8 @@ startButton.addEventListener("click", function(startButtonClickEvent) {
     welcomeScreen.classList.add("hidden");
 
     gameScreen.classList.remove("hidden");
+});
+
+gameForm.addEventListener("submit", function(gameFormSubmitEvent){
+    gameFormSubmitEvent.preventDefault();
 });
