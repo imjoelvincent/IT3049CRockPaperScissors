@@ -1,4 +1,3 @@
-"use strict";
 
 const startButton = document.getElementById("startButton");
 const welcomeScreen = document.getElementById("welcomeScreen");
@@ -14,17 +13,19 @@ const score = document.querySelector("score");
 const rock_div = document.getElementById("r");
 const paper_div = document.getElementById("p");
 const scissors_div = document.getElementById("s");
-
+var tmp;
+var user = document.getElementById("user");
 var selection = new Array();
+
 //var computerHistory = new Array();
 var round = 0;
 var winner = " ";
 
 function history(selection)
 {
-    var result = " ";    
+    var result = " ";
     for (var i = 0; i < selection.length; i++){
-        result += ("Round " + selection[i][0] + ": " + selection[i][3] + " Wins!! (Computer picked: " + selection[i][2] + ", User Name picked: " + selection[i][1] + ")"+ "</br>");    
+        result += ("Round " + selection[i][0] + ": " + selection[i][3] + " Wins!! (Computer picked: " + selection[i][2] + ", " + tmp + " picked: " + selection[i][1] + ")"+ "</br>");    
     }
 
     document.getElementById('result').innerHTML = result;
@@ -44,28 +45,22 @@ function convertToWord(letter){
 }
 
 function win(userChoice, computerChoice){
-    winner = "User Name";
+    winner = tmp;
     userScore++;
     userScore_span.innerHTML = userScore;
     computerScore_span.innerHTML = computerScore;
-    const smallUserWord = "user".fontsize(3);
-    const smallComputerWord = "computer".fontsize(3);
-    result_p.innerHTML = `${convertToWord(userChoice)}${(smallUserWord)} beats ${convertToWord(computerChoice)}${(smallComputerWord)}. You win! `;
+    result_p.innerHTML = `${convertToWord(userChoice)} beats ${convertToWord(computerChoice)}. You win! `;
 }
 function lose(userChoice, computerChoice){
     winner = "Computer";
     computerScore++;
     userScore_span.innerHTML = userScore;
     computerScore_span.innerHTML = computerScore;
-    const smallUserWord = "user".fontsize(3);
-    const smallComputerWord = "computer".fontsize(3);
-    result_p.innerHTML = `${convertToWord(userChoice)}${(smallUserWord)} loses ${convertToWord(computerChoice)}${(smallComputerWord)}. Computer Wins!! `;
+    result_p.innerHTML = `${convertToWord(userChoice)} loses ${convertToWord(computerChoice)}. Computer Wins!! `;
 }
 function draw(userChoice, computerChoice){
     winner = `No one `;
-    const smallUserWord = "user".fontsize(3);
-    const smallComputerWord = "computer".fontsize(3);
-    result_p.innerHTML = `${convertToWord(userChoice)}${(smallUserWord)} equals ${convertToWord(computerChoice)}${(smallComputerWord)}. It's a draw! `;
+    result_p.innerHTML = `${convertToWord(userChoice)} equals ${convertToWord(computerChoice)}. It's a draw! `;
 
 }
 
@@ -111,15 +106,23 @@ function main() {
 main();
 
 const gameForm = document.getElementById("gameForm");
-startButton.addEventListener("click", function(startButtonClickEvent) {
+
+startButton.addEventListener("click", function(startButtonClickEvent) 
+{
     startButtonClickEvent.preventDefault();
-
     console.log("user clicked the start button");
-
+    tmp = user.value;
+    if(user.value == ""){
+        alert("Name cannot be empty");
+        return false;
+}
+else
+{
     welcomeScreen.classList.add("hidden");
-
     gameScreen.classList.remove("hidden");
+}
 });
+
 
 gameForm.addEventListener("submit", function(gameFormSubmitEvent){
     gameFormSubmitEvent.preventDefault();
