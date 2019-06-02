@@ -28,7 +28,7 @@ function history(selection)
         result += ("Round " + selection[i][0] + ": " + selection[i][3] + " Wins!! (Computer picked: " + selection[i][2] + ", " + tmp + " picked: " + selection[i][1] + ")"+ "</br>");    
     }
 
-    document.getElementById('result').innerHTML = result;
+    document.getElementById('finalResult').innerHTML = result;
 }
 
 //computer choice 
@@ -125,15 +125,8 @@ else
 
 reset.addEventListener("click", function(resetClickEvent) 
 {
-    alert("Hello")
+    alert("Game is going to be reset!")
     window.location.reload();
-    // tmp = "";
-    // userScore = 0;
-    // computerScore = 0;
-    // round = 0;
-    // winner = "";
-    // selection = [];
-
     welcomeScreen.classList.remove("hidden");
     gameScreen.classList.add("hidden");
 

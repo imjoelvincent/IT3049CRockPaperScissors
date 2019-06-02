@@ -1,54 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Joel Vicent - Rock Paper Scissors</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <h1>Rock Paper Scissors</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div id="center" align="center" style="padding-bottom: 5px">
+                    <h1>Rock Paper Scissors</h1>
+                </div>
+                <div id="welcomeScreen">Welcome to the game! Enter your name and click start playing to begin! <br>
+                    <form>Enter your name:
+                        <input id="user" type="text" name="userName">
+                        <button id="startButton" type="button" class="btn btn-primary">Start</button>
+                    </form>
+                </div>
+                <div id="gameScreen" class="hidden">
+                    <div class="choices" style="background-color: darkgray; padding: 10px">
+                        <div class="choice" id="r">
+                            <img src="images/Rock.bmp" alt="Rock" style="width: 50px; height: 50px;">
+                        </div>
+                        <div class="choice" id="p">
+                            <img src="images/Paper.bmp" alt="Paper" style="width: 50px; height: 50px;">
+                        </div>
+                        <div class="choice" id="s">
+                            <img src="images/Scissors.bmp" alt="Scissors" style="width: 50px; height: 50px;">
+                        </div>
+                        <div class="result">
+                            <p></p>
+                        </div>
+                        <div id="gameView">
+                            <form id="gameForm" style="padding: 10px">
+                            <div id="forstyle" style="padding: 20px">
+                                <div id="user-label" class="badge">User Score: </div>
+                                <div id="computer-label" class="badge">Computer Score:</div>
+                                <span id="user-score">0</span><span id="computer-score">0</span>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
 
-    <div id="welcomeScreen">Welcome to the game! Enter your name and click start playing to begin! <br>
-    <form>Enter your name:
-        <input id="user" type="text" name="userName">
-        <button id="startButton">Start</button> 
-    </form>
-
-    </div>
-
-    <div id="gameScreen" class="hidden">
-        <form id="gameForm">
-    
-        <div id="user-label" class="badge">User Score: </div>
-        <div id="computer-label" class="badge">Computer Score</div>
-        <span id="user-score">0</span>:<span id="computer-score">0</span>
-    
-    <div class="score">
-        <div id="result"></div>
-    </div>
-    <div class="result">
-        <p></p>
-    </div>
-
-    <div class="choices">
-        <div class="choice" id="r">
-            <img src="images/Rock.bmp" alt="Rock" style="width: 50px; height: 50px;">
+                    <div class="score">
+                        <div id="finalResult" style="color: black;"></div>
+                    </div>
+                    <button id="reset" type="button" class="btn btn-primary">Reset</button>
+                </div>
+            </div>
         </div>
-        <div class="choice" id="p">
-            <img src="images/Paper.bmp" alt="Paper" style="width: 50px; height: 50px;">
-        </div>
-        <div class="choice" id="s">
-            <img src="images/Scissors.bmp" alt="Scissors" style="width: 50px; height: 50px;">
-        </div>
     </div>
-    <button id="reset">Reset</button>
-
-    </form>
-    </div>    
-    
-    
     <script src="index.js"></script>
 </body>
+
 </html>
