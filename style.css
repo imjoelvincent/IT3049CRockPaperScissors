@@ -36,6 +36,7 @@
     position: absolute;
     top: 30px;
     left: 200px;
+    font-family: sans-serif;
 }
 #computer-label{
     position: absolute;
@@ -46,6 +47,7 @@
     position: absolute;
     top: 30px;
     right: 50px;
+    font-family: sans-serif;
 }
 
 header > h1{
@@ -75,6 +77,12 @@ body{
     font-family: Asap, sans-serif;
 }
 
+.score{
+    font-family: sans-serif;
+    color: white;
+
+}
+
 .choices {
     margin-top: 50px 0;
     text-align: center;
@@ -93,12 +101,4 @@ body{
 .choice:hover{
     cursor: pointer;
     background: #24272E;
-}
-#action-message{
-    text-align: center;
-    color: rgb(255, 0, 0);
-    font-family: sans-serif;
-    font-weight: bold;
-    font-size: 20px;
-    margin-top: 20px;
 }

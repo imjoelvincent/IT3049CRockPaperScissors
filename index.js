@@ -10,9 +10,25 @@ const userScore_span = document.getElementById("user-score");
 const computerScore_span = document.getElementById("computer-score");
 const scoreBoard_div = document.querySelector("hidden");
 const result_p = document.querySelector(".result > p");
+const score = document.querySelector("score");
 const rock_div = document.getElementById("r");
 const paper_div = document.getElementById("p");
 const scissors_div = document.getElementById("s");
+
+var selection = new Array();
+//var computerHistory = new Array();
+var round = 0;
+var winner = " ";
+
+function history(selection)
+{
+    var result = " ";    
+    for (var i = 0; i < selection.length; i++){
+        result += ("Round " + selection[i][0] + ": " + selection[i][3] + " Wins!! (Computer picked: " + selection[i][2] + ", User Name picked: " + selection[i][1] + ")"+ "</br>");    
+    }
+
+    document.getElementById('result').innerHTML = result;
+}
 
 //computer choice 
 function getComputerChoice(){
@@ -28,15 +44,16 @@ function convertToWord(letter){
 }
 
 function win(userChoice, computerChoice){
+    winner = "User Name";
     userScore++;
     userScore_span.innerHTML = userScore;
     computerScore_span.innerHTML = computerScore;
     const smallUserWord = "user".fontsize(3);
     const smallComputerWord = "computer".fontsize(3);
     result_p.innerHTML = `${convertToWord(userChoice)}${(smallUserWord)} beats ${convertToWord(computerChoice)}${(smallComputerWord)}. You win! `;
-
 }
 function lose(userChoice, computerChoice){
+    winner = "Computer";
     computerScore++;
     userScore_span.innerHTML = userScore;
     computerScore_span.innerHTML = computerScore;
@@ -45,6 +62,7 @@ function lose(userChoice, computerChoice){
     result_p.innerHTML = `${convertToWord(userChoice)}${(smallUserWord)} loses ${convertToWord(computerChoice)}${(smallComputerWord)}. Computer Wins!! `;
 }
 function draw(userChoice, computerChoice){
+    winner = `No one `;
     const smallUserWord = "user".fontsize(3);
     const smallComputerWord = "computer".fontsize(3);
     result_p.innerHTML = `${convertToWord(userChoice)}${(smallUserWord)} equals ${convertToWord(computerChoice)}${(smallComputerWord)}. It's a draw! `;
@@ -54,7 +72,9 @@ function draw(userChoice, computerChoice){
 //funciton and swtich statements to compare the results
 function game(userChoice) {
     const computerChoice = getComputerChoice();
-    switch (userChoice + computerChoice){
+    round++;
+    switch (userChoice + computerChoice)
+    {
         case "rs":
         case "pr":
         case "sp":
@@ -71,16 +91,15 @@ function game(userChoice) {
             draw(userChoice, computerChoice);
             break;
     }
+    selection.push([round, convertToWord(userChoice), convertToWord(computerChoice), winner]);
+    history(selection);
+
 }
 
 
-
 function main() {
-
     rock_div.addEventListener('click', function(){
         game("r");
-
-
     })
     paper_div.addEventListener('click', function(){
         game("p");
@@ -88,9 +107,7 @@ function main() {
     scissors_div.addEventListener('click', function(){
         game("s");
     })
-
 }
-
 main();
 
 const gameForm = document.getElementById("gameForm");
